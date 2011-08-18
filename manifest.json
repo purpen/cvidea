@@ -1,0 +1,18 @@
+{
+  "name" : "分享至视觉灵感库",
+  "version" : "1.0.0",
+  "description" : "分享图片至视觉灵感库，找到相似灵感的图片。",
+  "background_page" : "background.html",
+  "permissions" : [
+    "contextMenus",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+   ],
+  "minimum_chrome_version" : "6.0.0.0",
+  "icons" : {
+    "16" : "icon-16.png",
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  }
+}

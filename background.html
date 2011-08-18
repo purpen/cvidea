@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (c) 2010 PURPEN. All rights reserved.  Use of this
+ * source code is governed by a BSD-style license that can be found in the
+ * LICENSE file.
+-->
+<html>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<head>
+	</head>
+	<body>
+	    <script type="text/javascript">
+			function encodeURL(url) {
+	        	return escape(encodeURIComponent(url));
+	    	}
+	      	/**
+	       	 * Returns a handler which will open a new window when activated.
+	       	 */
+	      	function getClickHandler() {
+	        	return function(info, tab) {
+					var base_url = 'http://idea.chinavisual.com/my/share_button';
+					var default_params = "popup=1";
+					base_url += '?'+default_params+'&url='+encodeURL(info.srcUrl)+'&title='+encodeURIComponent(tab.title)+'&ref='+encodeURL(info.pageUrl);
+	          		// Create a new window to the info page.
+	          		chrome.windows.create({ url: base_url, width: 570, height: 670 ,type:'popup'});
+	        	};
+	      	};
+	      	/**
+	       	 * Create a context menu which will only show up for images.
+	         */
+	      	chrome.contextMenus.create({
+	        	"title" : "分享至视觉灵感库",
+	        	"type" : "normal",
+	        	"contexts" : ["image"],
+	        	"onclick" : getClickHandler()
+	      	});
+	    </script>
+	</body>
+</html>
